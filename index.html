@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags for SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Manor Lane Dry Cleaners | Eco-Friendly Laundry & Dry Cleaning in London</title>
+    <meta name="description" content="Manor Lane Dry Cleaners provides high-quality, eco-friendly laundry and dry cleaning services in London. Expert care, affordable prices, and convenient pick-up and delivery." />
+    <meta name="keywords" content="dry cleaners, laundry service, eco-friendly cleaning, London dry cleaners, fabric care, laundry pick-up and delivery" />
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Manor Lane Dry Cleaners | Eco-Friendly Laundry & Dry Cleaning in London" />
+    <meta property="og:description" content="High-quality laundry and dry cleaning services with eco-friendly solutions. Convenient pickup and delivery for busy schedules." />
+    <meta property="og:image" content="/static/images/1.png" />
+    <meta property="og:url" content="https://www.manorlanedrycleaners.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Manor Lane Dry Cleaners | Eco-Friendly Laundry & Dry Cleaning in London" />
+    <meta name="twitter:description" content="Professional laundry and dry cleaning services in London, focusing on eco-friendly fabric care." />
+    <meta name="twitter:image" content="/static/images/1.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/images/1.png" type="image/png" />
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        .logo-text {
+                font-family: 'Arial', sans-serif;
+                font-weight: bold;
+                color: #ffffff; /* Dark grey color for contrast */
+                font-size: 2.5rem; /* Adjust size as needed */
+        }
+
+        .logo-highlight {
+                color: #1abc9c; /* Light blue color for 'Dry Cleaners' */
+                font-weight: 700;
+                font-style: italic;
+        }
+
+            /* Adding an underline effect */
+        .logo-text::after {
+                content: "";
+                display: block;
+                width: 80px;
+                height: 3px;
+                background-color: #3498db;
+                margin: 10px auto 0;
+        }
+        .hero-section {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .cta-button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+        }
+        .services-section, .prices-section, .find-us-section {
+            padding: 50px 0;
+        }
+        .service-item {
+            text-align: center;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .contact-icons {
+            font-size: 1.5rem;
+            color: white;
+            margin-left: 15px;
+        }
+        .custom-img-size {
+            width: 100px; /* Set width */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 150px; /* Optional: limit max height */
+        }
+        footer a {
+            color: #b0c4de; /* Soft color for links */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+           <div class="container text-center my-5">
+                <h1 class="logo-text">
+                    👔 Manor Lane <span class="logo-highlight">Dry Cleaners</span>
+                </h1>
+           </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#prices">Prices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#find-us">Find Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <!-- WhatsApp Icon -->
+                <li class="nav-item">
+                    <a class="nav-link contact-icons" href="https://wa.me/+442082971411" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+                <!-- Phone Icon -->
+                <li class="nav-item">
+                    <a class="nav-link contact-icons" href="tel:+442082971411">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section" style="background-image: url('/static/images/back.png');">
+        <div class="text-center">
+            <h1>Welcome to Manor Lane Dry Cleaners</h1>
+            <p>Your clothes deserve the premium care!</p>
+            <a href="#services" class="btn btn-primary cta-button">View Our Services</a>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <!-- Services Section --><section id="services" class="py-5 services-section">
+    <div class="container py-5">
+        <h2 class="text-center">Our Services</h2>
+        <div class="row mt-4">
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/shirt-service.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Shirt Service">
+                        <div class="card-body">
+                            <h5 class="card-title">Shirt Service</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-1" style="display: none;">
+                                Specialized cleaning and pressing for all types of shirts, ensuring they look crisp and fresh.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(1)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/dry-cleaning.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Dry Cleaning">
+                        <div class="card-body">
+                            <h5 class="card-title">Dry Cleaning</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-2" style="display: none;">
+                                Gentle cleaning method for delicate fabrics using specialized solvents that protect garment integrity.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(2)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/alternations.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Alterations &amp; Repairs">
+                        <div class="card-body">
+                            <h5 class="card-title">Alterations &amp; Repairs</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-3" style="display: none;">
+                                Professional alterations and repairs to ensure your garments fit perfectly and look their best.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(3)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/ironing.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Ironing Service">
+                        <div class="card-body">
+                            <h5 class="card-title">Ironing Service</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-4" style="display: none;">
+                                Expert ironing service to eliminate wrinkles and give your clothes a polished finish.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(4)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/sofa.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Sofa Covers">
+                        <div class="card-body">
+                            <h5 class="card-title">Sofa Covers</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-5" style="display: none;">
+                                Thorough cleaning of sofa covers to refresh your living space and maintain fabric quality.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(5)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/laundry.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Laundry Service">
+                        <div class="card-body">
+                            <h5 class="card-title">Laundry Service</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-6" style="display: none;">
+                                Complete laundry service for all types of clothing, ensuring clean, fresh-smelling results.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(6)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/rugs.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Rugs">
+                        <div class="card-body">
+                            <h5 class="card-title">Rugs</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-7" style="display: none;">
+                                Specialized cleaning for area rugs, using techniques that preserve colors and textures.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(7)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/skiway.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="SKI Wear">
+                        <div class="card-body">
+                            <h5 class="card-title">SKI Wear</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-8" style="display: none;">
+                                Professional cleaning of ski gear to remove dirt and odors while maintaining water repellency.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(8)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/bag.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Bag Cleaning">
+                        <div class="card-body">
+                            <h5 class="card-title">Bag Cleaning</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-9" style="display: none;">
+                                Thorough cleaning of bags, ensuring they remain stylish and functional without damage.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(9)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/dye.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Dye Service">
+                        <div class="card-body">
+                            <h5 class="card-title">Dye Service</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-10" style="display: none;">
+                                Color restoration or change service for garments that need a fresh look or touch-up.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(10)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/bedding.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Bedding">
+                        <div class="card-body">
+                            <h5 class="card-title">Bedding</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-11" style="display: none;">
+                                Comprehensive cleaning of all bedding items, including sheets, comforters, and pillowcases.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(11)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/uniform.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="School Uniform">
+                        <div class="card-body">
+                            <h5 class="card-title">School Uniform</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-12" style="display: none;">
+                                Dedicated service for cleaning and maintaining school uniforms, keeping them looking sharp.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(12)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/wedding.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Wedding Dress">
+                        <div class="card-body">
+                            <h5 class="card-title">Wedding Dress</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-13" style="display: none;">
+                                Specialized cleaning and preservation for wedding dresses to maintain their beauty and condition.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(13)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/shoe.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Shoe Repairs">
+                        <div class="card-body">
+                            <h5 class="card-title">Shoe Repairs</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-14" style="display: none;">
+                                Expert repairs and maintenance for all types of footwear, ensuring longevity and comfort.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(14)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/curtains.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Curtains">
+                        <div class="card-body">
+                            <h5 class="card-title">Curtains</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-15" style="display: none;">
+                                Professional cleaning of curtains to keep your home decor looking fresh and inviting.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(15)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <img src="/static/images/leather.webp" class="class=card-img-top custom-img-size mx-auto d-block" alt="Leather &amp; Suede">
+                        <div class="card-body">
+                            <h5 class="card-title">Leather &amp; Suede</h5>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-16" style="display: none;">
+                                Specialized cleaning and conditioning for leather and suede items to preserve their quality.
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription(16)">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleDescription(index) {
+        const description = document.getElementById(`description-${index}`);
+        const button = description.nextElementSibling;
+
+        if (description.style.display === "none") {
+            description.style.display = "block";
+            button.textContent = "Show Less";
+        } else {
+            description.style.display = "none";
+            button.textContent = "Show More";
+        }
+    }
+</script>
+
+
+
+    <!-- Prices Section -->
+    <section id="prices" class="prices-section bg-light">
+        <div class="container">
+            <h2 class="text-center">Our Prices</h2>
+            <table class="table table-bordered table-striped mt-4">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Service</th>
+                        <th>Price (£)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shirt (Wash & Press)</td>
+                        <td>£2.50</td>
+                    </tr>
+                    <tr>
+                        <td>Shirt (Dry Cleaned)</td>
+                        <td>£5.00</td>
+                    </tr>
+                    <tr>
+                        <td>2PC Suit</td>
+                        <td>£10.00</td>
+                    </tr>
+                    <tr>
+                        <td>3PC Suit</td>
+                        <td>£14.50</td>
+                    </tr>
+                    <tr>
+                        <td>Dress Suit (2PC)</td>
+                        <td>£14.50</td>
+                    </tr>
+                    <tr>
+                        <td>Blouse</td>
+                        <td>£5.00</td>
+                    </tr>
+                    <tr>
+                        <td>Trousers</td>
+                        <td>£5.00</td>
+                    </tr>
+                    <tr>
+                        <td>Dress (Short)</td>
+                        <td>£8.00</td>
+                    </tr>
+                    <tr>
+                        <td>Dress (Medium)</td>
+                        <td>£9.00</td>
+                    </tr>
+                    <tr>
+                        <td>Dress (Long)</td>
+                        <td>£12.00</td>
+                    </tr>
+                    <tr>
+                        <td>Dress (Evening)</td>
+                        <td>£14.00</td>
+                    </tr>
+                    <tr>
+                        <td>Jacket (Casual)</td>
+                        <td>£8.00</td>
+                    </tr>
+                    <tr>
+                        <td>Waistcoat</td>
+                        <td>£4.50</td>
+                    </tr>
+                    <tr>
+                        <td>Coat (Short)</td>
+                        <td>£10.00</td>
+                    </tr>
+                    <tr>
+                        <td>Coat (3/4)</td>
+                        <td>£12.00</td>
+                    </tr>
+                    <tr>
+                        <td>Coat (Long)</td>
+                        <td>£13.00</td>
+                    </tr>
+                    <tr>
+                        <td>Knitwear (Short/Light)</td>
+                        <td>£6.00</td>
+                    </tr>
+                    <tr>
+                        <td>Knitwear (Medium)</td>
+                        <td>£7.00</td>
+                    </tr>
+                    <tr>
+                        <td>Knitwear (Heavy)</td>
+                        <td>£8.00</td>
+                    </tr>
+                    <tr>
+                        <td>Skirt (Short)</td>
+                        <td>£5.50</td>
+                    </tr>
+                    <tr>
+                        <td>Skirt (Medium)</td>
+                        <td>£6.50</td>
+                    </tr>
+                    <tr>
+                        <td>Skirt (Long)</td>
+                        <td>£7.50</td>
+                    </tr>
+                    <tr>
+                        <td>Scarf (Small)</td>
+                        <td>£5.00</td>
+                    </tr>
+                    <tr>
+                        <td>Scarf (Medium)</td>
+                        <td>£6.00</td>
+                    </tr>
+                    <tr>
+                        <td>Scarf (Long)</td>
+                        <td>£7.00</td>
+                    </tr>
+                    <tr>
+                        <td>Pashmina (Small)</td>
+                        <td>£8.00</td>
+                    </tr>
+                    <tr>
+                        <td>Pashmina (Large)</td>
+                        <td>£10.00</td>
+                    </tr>
+                    <tr>
+                        <td>Trenchcoat/Mac</td>
+                        <td>£12.00</td>
+                    </tr>
+                    <tr>
+                        <td>Tie</td>
+                        <td>£3.00</td>
+                    </tr>
+                    <tr>
+                        <td>Kilt (The Real Deal)</td>
+                        <td>£12.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <!-- Find Us Section -->
+    <section id="find-us" class="find-us-section py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="text-center mb-4">Find Us</h2>
+            <p class="text-center">Visit our store at the following location:</p>
+        </div>
+            <div class="row">
+            <div class="col-md-6 mb-4 px-4 justify-content-center">
+                <h5 class="mb-3">Address</h5>
+                <p class="mb-4">176 Manor Ln, London SE12 8LP, United Kingdom</p>
+
+                <h5 class="mb-3">Contact Number</h5>
+                <p class="mb-4"><a href="tel:+442082971411">+44 20 8297 1411</a></p>
+
+                <h5 class="mb-3">Opening Hours</h5>
+                <p>Mon - Sat: 8:00am to 6:30pm</p>
+            </div>
+            <!-- Google Maps Embed -->
+        <div class="col-md-6">
+                <h5 class="mb-3">Location</h5>
+                <!-- Google Maps iframe for the location -->
+                <div class="map-container" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d79563.89126333094!2d-0.07673473261803873!3d51.45133342194413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x47d8a9e0a851fedf%3A0x649a49541f66a632!2s176%20Manor%20Ln%2C%20London%20SE12%208LP%2C%20United%20Kingdom!3m2!1d51.4513623!2d0.0056654999999999995!5e0!3m2!1sen!2s!4v1729790687910!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Why Choose Manor Lane Dry Cleaners?</h2>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>Quality Assurance</h3>
+                    <p>
+                        At Manor Lane Dry Cleaners, we prioritize quality in every aspect of our service. Our experienced team uses advanced cleaning techniques and high-quality products to ensure your garments look their best. We perform thorough inspections on all items to meet our high standards before they leave our facility.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Affordable Prices</h3>
+                    <p>
+                        We believe that quality laundry services should be accessible to everyone. That's why we offer competitive pricing without compromising on the quality of our work. Our transparent pricing structure ensures you know exactly what you're paying for.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>Quick Turnaround Times</h3>
+                    <p>
+                        Need your clothes cleaned in a hurry? No problem! At Manor Lane Dry Cleaners, we offer same-day or next-day service for most garments. We value your time and strive to provide fast, reliable service without compromising on quality.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>All Done In-House</h3>
+                    <p>
+                        We handle all cleaning processes in-house, ensuring that every garment receives the personal touch it deserves. Our skilled team meticulously inspects and cleans each item, providing you with peace of mind that your clothes are in good hands.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h3>Attention to Detail</h3>
+                    <p>
+                        From removing tough stains to repairing minor damages, we go the extra mile to ensure that your clothes look their best. Our team takes pride in giving every item special attention, whether it’s a business suit, a wedding dress, or your everyday wear.
+                    </p>
+                    <p>
+                        Whether you need a one-time service or regular cleaning, Manor Lane Dry Cleaners is your trusted partner for all your garment care needs. Give us a try today, and let us show you why we’re the top choice in town!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form method="POST" action="/send_message">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="NAME" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="EMAIL" required >
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Ask your Question here." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer Section -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <!-- About Us -->
+                <div class="col-md-4 mb-3">
+                    <h5>About Manor Lane Dry Cleaners</h5>
+                    <p>
+                        Providing expert care for all types of fabrics with eco-friendly solutions and premium care. We take pride in making your garments look their best.
+                    </p>
+                </div>
+                <!-- Contact Information -->
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> 176 Manor Ln, London SE12 8LP, United Kingdom</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+442082971411" class="text-light">+44 20 8297 1411</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@manorlanedrycleaners.com" class="text-light">info@manorlanedrycleaners.com</a></p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-md-2 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#services" class="text-light">Services</a></li>
+                        <li><a href="#find-us" class="text-light">Find Us</a></li>
+                        <li><a href="#pricing" class="text-light">Pricing</a></li>
+                        <li><a href="#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Operating Hours -->
+                <div class="col-md-2 mb-3">
+                    <h5>Opening Hours</h5>
+                    <p>Mon - Sat: 8:00 am - 6:30 pm</p>
+                    <p>Sun: Closed</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p>&copy;  Manor Lane Dry Cleaners | All rights reserved.</p>
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
