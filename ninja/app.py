@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, flash
 import smtplib  # Use this for sending emails
 from email.mime.text import MIMEText
+import mimetypes
+mimetypes.add_type('image/webp', '.webp')
 
 app = Flask(__name__)
 app.secret_key = 'tayyab12'
@@ -130,5 +132,5 @@ def send_email(name, email, message):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
