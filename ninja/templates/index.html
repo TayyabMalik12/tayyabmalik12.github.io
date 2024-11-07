@@ -167,9 +167,12 @@
             {% for service in services %}
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 my-3 p-3 rounded">
-                        <img src="{{ url_for('static', filename='images/' + service.image) }}" class="class=card-img-top custom-img-size mx-auto d-block" alt="{{ service.title }}">
-                        <div class="card-body">
+                        <div class="emoji text-center mb-3" style="font-size: 2.5rem;">
+                            {{ service.emoji }}
+                        </div>
+                        <div class="card-body text-center" >
                             <h5 class="card-title">{{ service.title }}</h5>
+                            <p class="card-text">{{ service.short_description }}</p>
                             <!-- Description container with show/hide functionality -->
                             <p class="card-text service-description" id="description-{{ loop.index }}" style="display: none;">
                                 {{ service.description }}
@@ -215,126 +218,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Shirt (Wash & Press)</td>
-                        <td>£2.50</td>
-                    </tr>
-                    <tr>
-                        <td>Shirt (Dry Cleaned)</td>
-                        <td>£5.00</td>
-                    </tr>
-                    <tr>
-                        <td>2PC Suit</td>
-                        <td>£10.00</td>
-                    </tr>
-                    <tr>
-                        <td>3PC Suit</td>
-                        <td>£14.50</td>
-                    </tr>
-                    <tr>
-                        <td>Dress Suit (2PC)</td>
-                        <td>£14.50</td>
-                    </tr>
-                    <tr>
-                        <td>Blouse</td>
-                        <td>£5.00</td>
-                    </tr>
-                    <tr>
-                        <td>Trousers</td>
-                        <td>£5.00</td>
-                    </tr>
-                    <tr>
-                        <td>Dress (Short)</td>
-                        <td>£8.00</td>
-                    </tr>
-                    <tr>
-                        <td>Dress (Medium)</td>
-                        <td>£9.00</td>
-                    </tr>
-                    <tr>
-                        <td>Dress (Long)</td>
-                        <td>£12.00</td>
-                    </tr>
-                    <tr>
-                        <td>Dress (Evening)</td>
-                        <td>£14.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jacket (Casual)</td>
-                        <td>£8.00</td>
-                    </tr>
-                    <tr>
-                        <td>Waistcoat</td>
-                        <td>£4.50</td>
-                    </tr>
-                    <tr>
-                        <td>Coat (Short)</td>
-                        <td>£10.00</td>
-                    </tr>
-                    <tr>
-                        <td>Coat (3/4)</td>
-                        <td>£12.00</td>
-                    </tr>
-                    <tr>
-                        <td>Coat (Long)</td>
-                        <td>£13.00</td>
-                    </tr>
-                    <tr>
-                        <td>Knitwear (Short/Light)</td>
-                        <td>£6.00</td>
-                    </tr>
-                    <tr>
-                        <td>Knitwear (Medium)</td>
-                        <td>£7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Knitwear (Heavy)</td>
-                        <td>£8.00</td>
-                    </tr>
-                    <tr>
-                        <td>Skirt (Short)</td>
-                        <td>£5.50</td>
-                    </tr>
-                    <tr>
-                        <td>Skirt (Medium)</td>
-                        <td>£6.50</td>
-                    </tr>
-                    <tr>
-                        <td>Skirt (Long)</td>
-                        <td>£7.50</td>
-                    </tr>
-                    <tr>
-                        <td>Scarf (Small)</td>
-                        <td>£5.00</td>
-                    </tr>
-                    <tr>
-                        <td>Scarf (Medium)</td>
-                        <td>£6.00</td>
-                    </tr>
-                    <tr>
-                        <td>Scarf (Long)</td>
-                        <td>£7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Pashmina (Small)</td>
-                        <td>£8.00</td>
-                    </tr>
-                    <tr>
-                        <td>Pashmina (Large)</td>
-                        <td>£10.00</td>
-                    </tr>
-                    <tr>
-                        <td>Trenchcoat/Mac</td>
-                        <td>£12.00</td>
-                    </tr>
-                    <tr>
-                        <td>Tie</td>
-                        <td>£3.00</td>
-                    </tr>
-                    <tr>
-                        <td>Kilt (The Real Deal)</td>
-                        <td>£12.00</td>
-                    </tr>
+                    {% for item in price_list %}
+                        <tr>
+                            <td>{{ item.service }}</td>
+                            <td>£{{ item.price }}</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
