@@ -32,8 +32,18 @@
     <!-- Font Awesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
+    <!-- Font for Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+
     <!-- Custom CSS -->
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+
         .logo-text {
                 font-family: 'Arial', sans-serif;
                 font-weight: bold;
@@ -42,7 +52,7 @@
         }
 
         .logo-highlight {
-                color: #1abc9c; /* Light blue color for 'Dry Cleaners' */
+                color: #ffffff; /* Light blue color for 'Dry Cleaners' */
                 font-weight: 700;
                 font-style: italic;
         }
@@ -64,6 +74,8 @@
             justify-content: center;
             align-items: center;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px:
         }
         .cta-button {
             font-size: 1.5rem;
@@ -102,6 +114,19 @@
             text-decoration: underline;
         }
 
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 8vw; /* Larger font size on smaller screens for better readability */
+            }
+        }
+
+        /* Further adjust font size for very small screens */
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 10vw; /* Increase further for small mobile screens */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -134,6 +159,46 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="areaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Areas
+                    </a>
+                   <div class="dropdown-menu" aria-labelledby="areaDropdown">
+                        <a class="dropdown-item" href="#hither-green">Hither Green</a>
+                        <a class="dropdown-item" href="#lee">Lee</a>
+                        <a class="dropdown-item" href="#grove-park">Grove Park</a>
+                        <a class="dropdown-item" href="#nottingham">Nottingham</a>
+                        <a class="dropdown-item" href="#eltham">Eltham</a>
+                        <a class="dropdown-item" href="#chislehurst">Chislehurst</a>
+                        <a class="dropdown-item" href="#sidcup">Sidcup</a>
+                        <a class="dropdown-item" href="#bromley">Bromley</a>
+                        <a class="dropdown-item" href="#bexley">Bexley</a>
+                        <a class="dropdown-item" href="#lewisham">Lewisham</a>
+                        <a class="dropdown-item" href="#new-cross">New Cross</a>
+                        <a class="dropdown-item" href="#catford">Catford</a>
+                        <a class="dropdown-item" href="#deptford">Deptford</a>
+                        <a class="dropdown-item" href="#greenwich">Greenwich</a>
+                        <a class="dropdown-item" href="#woolwich">Woolwich</a>
+                        <a class="dropdown-item" href="#blackheath">Blackheath</a>
+                        <a class="dropdown-item" href="#charlton">Charlton</a>
+                        <a class="dropdown-item" href="#kidbrooke">Kidbrooke</a>
+                        <a class="dropdown-item" href="#forest-hill">Forest Hill</a>
+                        <a class="dropdown-item" href="#bermondsey">Bermondsey</a>
+                        <a class="dropdown-item" href="#camberwell">Camberwell</a>
+                        <a class="dropdown-item" href="#dulwich">Dulwich</a>
+                        <a class="dropdown-item" href="#penge">Penge</a>
+                        <a class="dropdown-item" href="#sydenham">Sydenham</a>
+                        <a class="dropdown-item" href="#crystal-palace">Crystal Palace</a>
+                        <a class="dropdown-item" href="#norwood">Norwood</a>
+                    </div>
+
+                </li>
+
+                <!-- Link for Gallery -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Gallery</a>
+                </li>
+
                 <!-- WhatsApp Icon -->
                 <li class="nav-item">
                     <a class="nav-link contact-icons" href="https://wa.me/+442082971411" target="_blank">
@@ -151,26 +216,58 @@
     </nav>
 
     <!-- Hero Section -->
-    <div class="hero-section" style="background-image: url('{{ url_for('static', filename='images/back.png') }}');">
-        <div class="text-center">
-            <h1>Welcome to Manor Lane Dry Cleaners</h1>
-            <p>Your clothes deserve the premium care!</p>
-            <a href="#services" class="btn btn-primary cta-button">View Our Services</a>
-        </div>
-    </div>
+    <div id="heroCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    {% for slide in slides %}
+      <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+          <img src="{{ slide.image }}" alt="Slide {{ loop.index }}" width="100%" height="auto" style="object-fit: cover">
 
-    <!-- Services Section -->
-    <!-- Services Section --><section id="services" class="py-5 services-section">
+      </div>
+    {% endfor %}
+  </div>
+        <!-- Carousel Controls -->
+  <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+    <div class="hero-section" style="background-color: red" >
+                <div class="text-center text-white">
+                    <h1>Welcome To Manor Lane Dry Cleaners</h1>
+                    <p>Your clothes deserve the premium care!</p>
+                    <a href="#services" class="btn btn-primary cta-button">View Our Services</a>
+                </div>
+      </div>
+<section id="services" class="py-5 services-section">
     <div class="container py-5">
         <h2 class="text-center">Our Services</h2>
         <div class="row mt-4">
             {% for service in services %}
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 my-3 p-3 rounded">
-                        <div class="emoji text-center mb-3" style="font-size: 2.5rem;">
-                            {{ service.emoji }}
+                        <!-- Image or carousel of images for each service -->
+                        <div class="service-images text-center mb-3">
+                            {% if service.images | length > 1 %}
+                                <!-- Carousel for multiple images -->
+                                <div id="carousel-{{ loop.index }}" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        {% for image in service.images %}
+                                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                                <img src="{{ image }}" class="d-block w-100" alt="{{ service.title }} " height="300px">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <!-- Single image -->
+                                <img src="{{ service.images[0] }}" height="300px" class="d-block w-100" alt="{{ service.title }}">
+                            {% endif %}
                         </div>
-                        <div class="card-body text-center" >
+                        <div class="card-body text-center">
                             <h5 class="card-title">{{ service.title }}</h5>
                             <p class="card-text">{{ service.short_description }}</p>
                             <!-- Description container with show/hide functionality -->
@@ -188,6 +285,7 @@
         </div>
     </div>
 </section>
+
 
 <script>
     function toggleDescription(index) {
@@ -306,7 +404,78 @@
             </div>
         </div>
     </section>
+    <section id="gallery" class="py-5 bg-light">
+       <div class="container my-4">
+            <h2 class="text-center mb-4">Media Gallery</h2>
+            <div class="row g-4" >
+                {% for item in media_items %}
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#mediaModal"
+                               data-src="{{ item.src }}" data-type="{{ item.type }}" data-title="{{ item.title }}">
+                                <img src="{{ item.thumbnail }}" class="card-img-top" alt="{{ item.alt }}">
+                            </a>
+                            <div class="card-body" >
+                                <h5 class="card-title">{{ item.title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="mediaModal" tabindex="-1" aria-labelledby="mediaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="modalTitle" class="modal-title"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modalContent"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const mediaModal = document.getElementById('mediaModal');
+            const modalContent = document.getElementById('modalContent');
+            const modalTitle = document.getElementById('modalTitle');
+
+            mediaModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const src = button.getAttribute('data-src');
+                const type = button.getAttribute('data-type');
+                const title = button.getAttribute('data-title');
+
+                modalTitle.textContent = title; // Set the title in the modal
+
+                if (type === 'image') {
+                    modalContent.innerHTML = `<img src="${src}" class="img-fluid" alt="${title}">`;
+                } else if (type === 'video') {
+                    modalContent.innerHTML = `
+                        <div class="d-flex justify-content-center ">
+                            <video controls autoplay class="w-100" style="max-height: 85vh;">
+                                <source src="${src}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    `;
+                }
+            });
+
+            mediaModal.addEventListener('hidden.bs.modal', function() {
+                modalContent.innerHTML = ''; // Clear content when modal is closed
+            });
+        </script>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-5">
@@ -369,6 +538,39 @@
                     <h5>Opening Hours</h5>
                     <p>Mon - Sat: 8:00 am - 6:30 pm</p>
                     <p>Sun: Closed</p>
+                </div>
+                <!-- Service Areas -->
+                <div class="col-md-2 mb-3">
+                    <h5>Service Areas</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#hither-green" class="text-light">Hither Green</a></li>
+                        <li><a href="#lee" class="text-light">Lee</a></li>
+                        <li><a href="#grove-park" class="text-light">Grove Park</a></li>
+                        <li><a href="#nottingham" class="text-light">Nottingham</a></li>
+                        <li><a href="#eltham" class="text-light">Eltham</a></li>
+                        <li><a href="#chislehurst" class="text-light">Chislehurst</a></li>
+                        <li><a href="#sidcup" class="text-light">Sidcup</a></li>
+                        <li><a href="#bromley" class="text-light">Bromley</a></li>
+                        <li><a href="#bexley" class="text-light">Bexley</a></li>
+                        <li><a href="#lewisham" class="text-light">Lewisham</a></li>
+                        <li><a href="#new-cross" class="text-light">New Cross</a></li>
+                        <li><a href="#catford" class="text-light">Catford</a></li>
+                        <li><a class="text-light" href="#deptford">Deptford</a></li>
+                        <li><a class="text-light" href="#greenwich">Greenwich</a></li>
+                        <li><a class="text-light" href="#woolwich">Woolwich</a></li>
+                        <li><a class="text-light" href="#blackheath">Blackheath</a></li>
+                        <li><a class="text-light" href="#charlton">Charlton</a></li>
+                        <li><a class="text-light" href="#kidbrooke">Kidbrooke</a></li>
+                        <li><a class="text-light" href="#forest-hill">Forest Hill</a></li>
+                        <li><a class="text-light" href="#bermondsey">Bermondsey</a></li>
+                        <li><a class="text-light" href="#camberwell">Camberwell</a></li>
+                        <li><a class="text-light" href="#dulwich">Dulwich</a></li>
+                        <li><a class="text-light" href="#penge">Penge</a></li>
+                        <li><a class="text-light" href="#sydenham">Sydenham</a></li>
+                        <li><a class="text-light" href="#crystal-palace">Crystal Palace</a></li>
+                        <li><a class="text-light" href="#norwood">Norwood</a></li>
+                        <!-- Add additional areas as needed -->
+                    </ul>
                 </div>
             </div>
             <div class="row mt-4">

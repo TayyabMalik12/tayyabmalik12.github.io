@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-4">
+    <h2 class="text-center mb-4">Media Gallery</h2>
+    <div class="row g-3">
+        {% for item in media_items %}
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#mediaModal"
+                       data-src="{{ item.src }}" data-type="{{ item.type }}" data-title="{{ item.title }}">
+                        <img src="{{ item.thumbnail }}" class="card-img-top" alt="{{ item.alt }}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="mediaModal" tabindex="-1" aria-labelledby="mediaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modalTitle" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const mediaModal = document.getElementById('mediaModal');
+    const modalContent = document.getElementById('modalContent');
+    const modalTitle = document.getElementById('modalTitle');
+
+    mediaModal.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        const src = button.getAttribute('data-src');
+        const type = button.getAttribute('data-type');
+        const title = button.getAttribute('data-title');
+
+        modalTitle.textContent = title; // Set the title in the modal
+
+        if (type === 'image') {
+            modalContent.innerHTML = `<img src="${src}" class="img-fluid" alt="${title}">`;
+        } else if (type === 'video') {
+            modalContent.innerHTML = `
+                <video controls autoplay class="w-100">
+                    <source src="${src}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            `;
+        }
+    });
+
+    mediaModal.addEventListener('hidden.bs.modal', function() {
+        modalContent.innerHTML = ''; // Clear content when modal is closed
+    });
+</script>
+</body>
+</html>
