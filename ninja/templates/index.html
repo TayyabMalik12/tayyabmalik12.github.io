@@ -40,8 +40,38 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 1000;
+          background-color: #333;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 20px; /* Compact menu */
+          color: white;
+          font-size: 0.9rem; /* Smaller font for a minimal menu */
+        }
+        .navbar {
+          background-color: #333;
+          color: white;
+          padding: 0px 0px; /* Reduced padding for compact menu */
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.9rem; /* Smaller font for desktop menu */
         }
 
+        .navbar nav a {
+          margin: 0 0px;
+          color: white;
+          text-decoration: none;
+        }
 
 
         .logo-text {
@@ -123,8 +153,33 @@
         /* Further adjust font size for very small screens */
         @media (max-width: 576px) {
             .logo-text {
-                font-size: 10vw; /* Increase further for small mobile screens */
+                font-size: 10vw; /* Adjustable for responsiveness */
+                  white-space: normal; /* Allow text to wrap to the next line */
+                  text-align: center; /* Center-align the logo text */
+                  line-height: 1.2; /* Adjust for better spacing between lines */
+                  word-wrap: break-word; /* Ensure long words break appropriately */
+                  margin: 0 auto; /* Center the text block */font-size: 10vw; /* Increase further for small mobile screens */
             }
+            .slide {
+                height: calc(100vh - 50px); /* Adjust based on navbar height */
+             }
+
+             .slide img {
+                height: 100%;
+                object-fit: cover;
+             }
+        }
+        @media (min-width: 769px) {
+          .slide {
+            height: 80vh; /* Viewport height */
+            overflow: hidden;
+          }
+
+          .slide img {
+            width: 100%;
+            height: 400px; /* Full height minus header */
+            object-fit: cover; /* Ensure the image scales appropriately */
+          }
         }
 
     </style>
@@ -201,13 +256,13 @@
 
                 <!-- WhatsApp Icon -->
                 <li class="nav-item">
-                    <a class="nav-link contact-icons" href="https://wa.me/+442082971411" target="_blank">
+                    <a class="nav-link contact-icons" href="https://wa.me/+447523790760" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </li>
                 <!-- Phone Icon -->
                 <li class="nav-item">
-                    <a class="nav-link contact-icons" href="tel:+442082971411">
+                    <a class="nav-link contact-icons" href="tel:00447523790760">
                         <i class="fas fa-phone-alt"></i>
                     </a>
                 </li>
@@ -264,7 +319,7 @@
                                 </div>
                             {% else %}
                                 <!-- Single image -->
-                                <img src="{{ service.images[0] }}" height="300px" class="d-block w-100" alt="{{ service.title }}">
+                                <img src="{{ service.images[0] }}" height="400px" class="d-block w-100" alt="{{ service.title }}">
                             {% endif %}
                         </div>
                         <div class="card-body text-center">
@@ -520,8 +575,8 @@
                 <div class="col-md-4 mb-3">
                     <h5>Contact Us</h5>
                     <p><i class="fas fa-map-marker-alt"></i> 176 Manor Ln, London SE12 8LP, United Kingdom</p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+442082971411" class="text-light">+44 20 8297 1411</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@manorlanedrycleaners.com" class="text-light">info@manorlanedrycleaners.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:00447523790760" class="text-light">0044 7523790760</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:manorlane.drycleaners176@gmail.com" class="text-light">info@manorlanedrycleaners.com</a></p>
                 </div>
                 <!-- Quick Links -->
                 <div class="col-md-2 mb-3">
