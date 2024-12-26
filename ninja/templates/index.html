@@ -165,7 +165,8 @@
              }
 
              .slide img {
-                height: 100%;
+                width: 100%
+                height: calc(100vh-50px);
                 object-fit: cover;
              }
         }
@@ -275,11 +276,42 @@
   <div class="carousel-inner">
     {% for slide in slides %}
       <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
-          <img src="{{ slide.image }}" alt="Slide {{ loop.index }}" width="100%" height="auto" style="object-fit: cover">
+          <img id="slide-{{ loop.index }}" src="{{ slide.image }}" alt="Slide {{ loop.index }}" width="100%" height="auto" style="object-fit: cover">
 
       </div>
     {% endfor %}
+
   </div>
+<script>
+    // Function to check if the device is mobile
+    const isMobile = () => window.innerWidth <= 767;
+
+    // Function to update image sources for mobile view
+    const updateCarouselImages = () => {
+        // Select all carousel images
+        const images = document.querySelectorAll('#heroCarousel .carousel-item img');
+
+        images.forEach((img, index) => {
+            const originalSrc = img.src;
+
+            // Update src based on device type
+            if (isMobile()) {
+                // Replace 'front' with 'mobile' in the src path
+                img.src = originalSrc.replace('front', 'mobile');
+            } else {
+                // Revert to 'front' for desktop
+                img.src = originalSrc.replace('mobile', 'front');
+            }
+        });
+    };
+
+    // Call the function initially
+    updateCarouselImages();
+
+    // Re-run the function on window resize
+    window.addEventListener('resize', updateCarouselImages);
+</script>
+
         <!-- Carousel Controls -->
   <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
