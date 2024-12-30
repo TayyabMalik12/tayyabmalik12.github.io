@@ -1,0 +1,15 @@
+# Exported from Render on 2024-12-30T15:27:19Z
+services:
+- type: web
+  name: tayyabmalik12.github.io
+  runtime: python
+  repo: https://github.com/TayyabMalik12/tayyabmalik12.github.io
+  plan: free
+  region: oregon
+  buildCommand: pip install -r requirements.txt
+  startCommand: gunicorn app:app
+  domains:
+  - manorlanedrycleaners.co.uk
+  - www.manorlanedrycleaners.co.uk
+  rootDir: ./ninja
+version: "1"
