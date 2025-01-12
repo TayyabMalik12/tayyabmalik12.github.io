@@ -37,7 +37,7 @@ services = [
         "title": "Natives Cleaning",
         "description": "We specialize in cleaning all types of traditional and native attire. From Scottish kilt to African native and Asian sari, we provide professional dry-cleaning services for all.",
         "images": ["/static/images/natives_clean1.jpg", "/static/images/natives_clean2.jpg", "/static/images/natives_clean3.jpg"],
-        "short_description": ""
+        "short_description": "Preserving Heritage, One Garment at a Time"
 
     },
     {
@@ -73,7 +73,7 @@ services = [
     {
         "title": "Dye Service",
         "description": "With a range of popular colors in stock, we can dye most items that are safe for water treatment—cotton works best for vibrant results.",
-        "images": ["/static/images/dye_service.jpg", "/static/images/dress_cleaning.jpg"],
+        "images": ["/static/images/dye_service.jpg"],
         "short_description": "We can even dye your clothes!"
     },
     {
@@ -136,9 +136,12 @@ media_items = [
         {'type': 'video', 'src': '/static/images/wedding_dress_cleaning.mp4', 'thumbnail': '/static/images/thumbnail_wedding_dress_cleaning.png', 'alt': 'Wedding Dress Cleaning', 'title': 'Wedding Dress Cleaning'},
         {'type': 'video', 'src': '/static/images/wedding_dress_clean.mp4', 'thumbnail': '/static/images/thumbnail_wedding_dress_cleaning.png', 'alt': 'Wedding Dress Cleaning', 'title': 'Wedding Dress Cleaning'},
         {'type': 'video', 'src': '/static/images/sewing.mp4', 'thumbnail': '/static/images/sewing.png', 'alt': 'Alternations', 'title': 'Alternations & Repairs'},
+        {'type': 'video', 'src': '/static/images/native_dress_cleaning.mp4', 'thumbnail': '/static/images/thumbnail_dress_cleaning.png', 'alt': 'Native Dress Cleaning', 'title': 'Native Dress Cleaning'},
+        {'type': 'video', 'src': '/static/images/dress_short.mp4', 'thumbnail': '/static/images/dress_shortening_thumbnail.png', 'alt': 'dress shortening', 'title': 'Dress Shortening'},
+        {'type': 'video', 'src': '/static/images/shoe_repair.mp4', 'thumbnail': '/static/images/shoe_repairs_thumbnail.png', 'alt': 'Shoe Repairs', 'title': 'Shoe Repairs'},
         {'type': 'video', 'src': '/static/images/toy_before_repair.mp4', 'thumbnail': '/static/images/thumbnail_before_repair.png', 'alt': 'Toy Before Repair', 'title': 'Toy Before Repair'},
         {'type': 'video', 'src': '/static/images/toy_after_repair.mp4', 'thumbnail': '/static/images/thumbnail_after_repair.png', 'alt': 'Toy After Repair', 'title': 'Toy After Repair'},
-        {'type': 'video', 'src': '/static/images/native_dress_cleaning.mp4', 'thumbnail': '/static/images/thumbnail_dress_cleaning.png', 'alt': 'Native Dress Cleaning', 'title': 'Native Dress Cleaning'},
+        {'type': 'video', 'src': '/static/images/kilt_alternations.mp4','thumbnail': '/static/images/kilt_alternations_thumbnail.png', 'alt': 'kilt alternations', 'title': 'Kilt Alternations'},
         {'type': 'video', 'src': '/static/images/cushion_cover_making.mp4', 'thumbnail': '/static/images/thumbnail_cushion_making.png', 'alt': 'Cushion Making', 'title': 'Cushion Making'},
 
     ]
@@ -177,9 +180,9 @@ def send_message():
 
 def send_email(name, email, message):
     # Set up your email server here (Gmail SMTP, etc.)
-    sender = 'maryventurres@gmail.com'
-    receiver = 'maryventurres@gmail.com'
-    password = 'srox fzjy mlox kfbe'
+    sender = 'manorlane.drycleaners176@gmail.com'
+    receiver = 'manorlane.drycleaners176@gmail.com'
+    password = 'rxzb gekx trjg ihcv'
 
     msg = MIMEText(f'From: {name} ({email})\n\nMessage:\n{message}')
     msg['Subject'] = 'New Contact Message'
