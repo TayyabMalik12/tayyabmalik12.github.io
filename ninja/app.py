@@ -160,6 +160,10 @@ def gallery():
     ]
     return render_template('gallery.html', media_items=media_items)
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('.', 'sitemap.xml', mimetype='application/xml')
+
 @app.route('/send_message', methods=['POST'])
 def send_message():
     name = request.form['name']
