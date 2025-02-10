@@ -6,6 +6,10 @@
     <loc>https://www.manorlanedrycleaners.co.uk/</loc>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
+    <image:image>
+      <image:loc>https://www.manorlanedrycleaners.co.uk/static/images/manor.png</image:loc>
+      <image:title>Manor Lane Dry Cleaners - Premium Cleaning Services</image:title>
+    </image:image>
   </url>
 
   <!-- Services Page -->
