@@ -146,6 +146,10 @@ media_items = [
 
     ]
 
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
+
 @app.route('/')
 def index():
     return render_template('index.html', services=services, price_list=price_list, slides=slides, media_items=media_items)
