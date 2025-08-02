@@ -190,7 +190,7 @@ def send_email(name, email, message):
     # Set up your email server here (Gmail SMTP, etc.)
     sender = 'manorlane.drycleaners176@gmail.com'
     receiver = 'manorlane.drycleaners176@gmail.com'
-    password = 'rxzb gekx trjg ihcv'
+    password = 'jeco ycgn mleu bgiz'
 
     msg = MIMEText(f'From: {name} ({email})\n\nMessage:\n{message}')
     msg['Subject'] = 'New Contact Message'
