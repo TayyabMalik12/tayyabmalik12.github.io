@@ -623,8 +623,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </div>
+        <div id="thankYou" style="margin-top:10px; color:green;"></div>
 
     </section>
+    <script>
+document.getElementById('contact').addEventListener('submit', function(e) {
+    e.preventDefault(); // stop normal form submit
+
+    const formData = new FormData(this);
+
+    fetch('/send_message', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+            // Change URL to /#send_message
+            window.location.hash = "send_message";
+
+            // Show thank you message
+            document.getElementById('thankYou').textContent =
+                `Thank you ${data.name}, your message has been sent! 🎉`;
+
+            // Optionally trigger GTM event
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: "formSubmissionSuccess",
+                name: data.name
+            });
+        } else {
+            alert(data.message || "Something went wrong");
+        }
+    })
+    .catch(err => {
+        alert("Network error, please try again.");
+    });
+});
+</script>
+
 
     <!-- Footer -->
     <!-- Footer Section -->
