@@ -604,7 +604,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h2 class="text-center">Contact Us</h2>
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form method="POST" action="/send_message">
+                    <form method="POST" action="/send_message" id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="NAME" required>
@@ -628,11 +628,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
     <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById('contact'); // match your HTML
+    const form = document.getElementById('contactForm'); // match your HTML
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        console.log(form, form instanceof HTMLFormElement);
+        
 
 
         const formData = new FormData(form);
