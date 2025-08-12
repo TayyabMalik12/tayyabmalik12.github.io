@@ -180,7 +180,7 @@ def send_message():
     # Sending the message via email (simple example using SMTP)
     try:
         send_email(name, email, message)
-           return jsonify({"status": "success", "name": name})
+        return jsonify({"status": "success", "name": name})
     except:
         return jsonify({"status": "error", "message": "Error sending message."}), 500
 
