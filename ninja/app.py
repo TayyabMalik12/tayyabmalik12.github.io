@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash, send_from_directory
+from flask import Flask, render_template, request, redirect, flash, send_from_directory, jsonify
 import smtplib  # Use this for sending emails
 from email.mime.text import MIMEText
 import mimetypes
@@ -174,16 +174,15 @@ def send_message():
     email = request.form['email']
     message = request.form['message']
 
-    # Optional: Flash a message that the form was submitted
-    flash(f'Thank you {name}, your message has been sent!', 'success')
+ 
+
 
     # Sending the message via email (simple example using SMTP)
     try:
         send_email(name, email, message)
-        return redirect('/')  # Redirect back to home after submission
+           return jsonify({"status": "success", "name": name})
     except:
-        flash('Error sending message. Please try again later.', 'danger')
-        return redirect('/')
+        return jsonify({"status": "error", "message": "Error sending message."}), 500
 
 
 def send_email(name, email, message):
