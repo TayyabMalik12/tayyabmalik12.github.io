@@ -627,41 +627,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </section>
     <script>
-document.getElementById('contact').addEventListener('submit', function(e) {
-    e.preventDefault(); // stop normal form submit
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById('contact'); // match your HTML
 
-    const formData = new FormData(this);
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    fetch('/send_message', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.status === "success") {
-            // Change URL to /#send_message
-            window.location.hash = "send_message";
+        const formData = new FormData(form);
 
-            // Show thank you message
-            document.getElementById('thankYou').textContent =
-                `Thank you ${data.name}, your message has been sent! 🎉`;
+        fetch('/send_message', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                // Change URL to /#send_message
+                window.location.hash = "send_message";
 
-            // Optionally trigger GTM event
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: "formSubmissionSuccess",
-                name: data.name
-            });
-        } else {
-            alert(data.message || "Something went wrong");
-        }
-    })
-    .catch(err => {
-        alert("Network error, please try again.");
+                // Show thank you text in page
+                document.getElementById('thankYou').textContent =
+                    `Thank you ${data.name}, your message has been sent! 🎉`;
+
+                // Push GTM event
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: "formSubmissionSuccess",
+                    name: data.name
+                });
+            } else {
+                alert(data.message || "Something went wrong");
+            }
+        })
+        .catch(() => {
+            alert("Network error, please try again.");
+        });
     });
 });
 </script>
-
 
     <!-- Footer -->
     <!-- Footer Section -->
