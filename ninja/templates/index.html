@@ -632,6 +632,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+        console.log(form, form instanceof HTMLFormElement);
+
 
         const formData = new FormData(form);
 
