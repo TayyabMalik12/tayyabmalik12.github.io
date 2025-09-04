@@ -203,6 +203,11 @@
                   transition: transform 0.2s;
                   text-decoration: none;
                 }
+            .fab i {
+                  margin: 0;                  /* reset any default spacing */
+                  display: inline-block;      /* ensure it's treated as block */
+                  line-height: 1;             /* avoids vertical misalignment */
+                }
                 
             .fab:hover {
                   transform: scale(1.1);
