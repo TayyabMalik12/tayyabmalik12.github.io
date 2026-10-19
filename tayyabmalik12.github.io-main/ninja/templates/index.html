@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TSQD693H');</script>
+<!-- End Google Tag Manager -->
+    <!-- Meta Tags for SEO -->
+    <meta charset="UTF-">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Manor Lane Dry Cleaners | Premium Dry Cleaning & Laundry in London</title>
+    <meta name="description" content="✓ Premium Dry Cleaning ✓ Specialist Wedding Dress Cleaning ✓ Expert Alterations & Repairs ✓ Quality Curtain Cleaning ✓ Hand Finished Shirts ✓ Convenient On-Site Service ✓ Open Mon-Sat, 8:30am-6:30pm. Visit Manor Lane Dry Cleaners for the best fabric care in London." />
+    <meta name="keywords" content="premium dry cleaning, wedding dress cleaning, alterations and repairs, curtain cleaning, hand-finished shirts, on-site dry cleaning, London dry cleaners, fabric care, laundry service" />
+    <meta property="og:image" content="{{ url_for('static', filename='images/manor.png') }}" />
+    <meta property="og:image:alt" content="Manor Lane Dry Cleaners - Premium Dry Cleaning & Laundry" />
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Manor Lane Dry Cleaners | Eco-Friendly Laundry & Dry Cleaning in London" />
+    <meta property="og:description" content="✓ Premium Dry Cleaning ✓ Specialist Wedding Dress Cleaning ✓ Expert Alterations & Repairs ✓ Quality Curtain Cleaning ✓ Hand Finished Shirts ✓ Convenient On-Site Service ✓ Open Mon-Sat, 8:30am-6:30pm. Visit Manor Lane Dry Cleaners for the best fabric care in London."/>
+    <meta property="og:image" content="{{ url_for('static', filename='images/manor.png') }}" />
+    <meta property="og:url" content="https://www.manorlanedrycleaners.co.uk" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Manor Lane Dry Cleaners | Eco-Friendly Laundry & Dry Cleaning in London" />
+    <meta name="twitter:description" content="✓ Premium Dry Cleaning ✓ Specialist Wedding Dress Cleaning ✓ Expert Alterations & Repairs ✓ Quality Curtain Cleaning ✓ Hand Finished Shirts ✓ Convenient On-Site Service ✓ Open Mon-Sat, 8:30am-6:30pm. Visit Manor Lane Dry Cleaners for the best fabric care in London." />
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/manor.png') }}" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/manor.png') }}" type="image/png" />
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <!-- Font for Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 1000;
+          background-color: #333;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 20px; /* Compact menu */
+          color: white;
+          font-size: 0.9rem; /* Smaller font for a minimal menu */
+        }
+        .navbar {
+          background-color: #333;
+          color: white;
+          padding: 0px 0px; /* Reduced padding for compact menu */
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.9rem; /* Smaller font for desktop menu */
+        }
+
+        .navbar nav a {
+          margin: 0 0px;
+          color: white;
+          text-decoration: none;
+        }
+
+
+        .logo-text {
+                font-family: 'Arial', sans-serif;
+                font-weight: bold;
+                color: #ffffff; /* Dark grey color for contrast */
+                font-size: 2.5rem; /* Adjust size as needed */
+        }
+
+        .logo-highlight {
+                color: #ffffff; /* Light blue color for 'Dry Cleaners' */
+                font-weight: 700;
+                font-style: italic;
+        }
+
+            /* Adding an underline effect */
+        .logo-text::after {
+                content: "";
+                display: block;
+                width: 80px;
+                height: 3px;
+                background-color: #3498db;
+                margin: 10px auto 0;
+        }
+        .hero-section {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px:
+        }
+        .cta-button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+        }
+        .services-section, .prices-section, .find-us-section {
+            padding: 50px 0;
+        }
+        .service-item {
+            text-align: center;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .contact-icons {
+            font-size: 1.5rem;
+            color: white;
+            margin-left: 15px;
+        }
+        .custom-img-size {
+            width: 100px; /* Set width */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 150px; /* Optional: limit max height */
+        }
+        footer a {
+            color: #b0c4de; /* Soft color for links */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 8vw; /* Larger font size on smaller screens for better readability */
+            }
+        }
+
+        /* Further adjust font size for very small screens */
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 10vw; /* Adjustable for responsiveness */
+                  white-space: normal; /* Allow text to wrap to the next line */
+                  text-align: center; /* Center-align the logo text */
+                  line-height: 1.2; /* Adjust for better spacing between lines */
+                  word-wrap: break-word; /* Ensure long words break appropriately */
+                  margin: 0 auto; /* Center the text block */font-size: 10vw; /* Increase further for small mobile screens */
+            }
+            .slide {
+                height: auto; /* Adjust based on navbar height */
+             }
+
+             .slide img {
+                width: 100%
+                height: 400px;
+                object-fit: cover;
+             }
+            .floating-buttons {
+                  position: fixed;
+                  bottom: 20px;
+                  left: 20px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  z-index: 1000;
+                }
+                
+            .fab {
+                  width: 55px;
+                  height: 55px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  align-content: center;
+                  justify-content: center;
+                  color: white;
+                  font-size: 32px;
+                  line-height: 1; 
+                  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                  transition: transform 0.2s;
+                  text-decoration: none;
+                }
+            .fab i {
+                  margin: 0;                  /* reset any default spacing */
+                  display: inline-block;      /* ensure it's treated as block */
+                  line-height: 1;             /* avoids vertical misalignment */
+                }
+                
+            .fab:hover {
+                  transform: scale(1.1);
+                }
+                
+            .whatsapp {
+                  background-color: #25D366;
+                }
+                
+            .phone {
+                  background-color: #0A66C2;
+                }
+                
+            .map {
+                  background-color: #FFEB3B;
+                }
+
+        }
+        @media (min-width: 769px) {
+          .slide {
+            overflow: hidden;
+          }
+
+          .slide img {
+            width: 100%;
+            height: 400px; /* Full height minus header */
+            object-fit: cover; /* Ensure the image scales appropriately */
+          }
+        }
+
+    </style>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17053005015"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17053005015');
+</script>
+    <!-- Event snippet for Page view conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-17053005015/DiP7CLy198EaENfpwMM_'});
+</script
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSQD693H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+           <div class="container text-center my-5">
+                <h1 class="logo-text">
+                    <img src="/static/images/manor.png" width="50" height="50"> Manor Lane <span class="logo-highlight">Dry Cleaners</span>
+                </h1>
+           </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#prices">Prices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#find-us">Find Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="areaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Areas
+                    </a>
+                   <div class="dropdown-menu" aria-labelledby="areaDropdown">
+
+    <a class="dropdown-item area-dropdown-link" href="#manor-lane" data-slug="manor-lane">Manor Lane</a>
+<a class="dropdown-item area-dropdown-link" href="#hither-green" data-slug="hither-green">Hither Green</a>
+<a class="dropdown-item area-dropdown-link" href="#lee" data-slug="lee">Lee</a>
+<a class="dropdown-item area-dropdown-link" href="#lewisham" data-slug="lewisham">Lewisham</a>
+<a class="dropdown-item area-dropdown-link" href="#blackheath" data-slug="blackheath">Blackheath</a>
+<a class="dropdown-item area-dropdown-link" href="#grove-park" data-slug="grove-park">Grove Park</a>
+<a class="dropdown-item area-dropdown-link" href="#eltham" data-slug="eltham">Eltham</a>
+<a class="dropdown-item area-dropdown-link" href="#catford" data-slug="catford">Catford</a>
+<a class="dropdown-item area-dropdown-link" href="#deptford" data-slug="deptford">Deptford</a>
+<a class="dropdown-item area-dropdown-link" href="#brockley" data-slug="brockley">Brockley</a>
+<a class="dropdown-item area-dropdown-link" href="#greenwich" data-slug="greenwich">Greenwich</a>
+<a class="dropdown-item area-dropdown-link" href="#new-cross" data-slug="new-cross">New Cross</a>
+<a class="dropdown-item area-dropdown-link" href="#ladywell" data-slug="ladywell">Ladywell</a>
+<a class="dropdown-item area-dropdown-link" href="#forest-hill" data-slug="forest-hill">Forest Hill</a>
+<a class="dropdown-item area-dropdown-link" href="#sydenham" data-slug="sydenham">Sydenham</a>
+<a class="dropdown-item area-dropdown-link" href="#south-london" data-slug="south-london">South London</a>
+<a class="dropdown-item area-dropdown-link" href="#south-east-london" data-slug="south-east-london">South East London</a>
+<a class="dropdown-item area-dropdown-link" href="#south-west-london" data-slug="south-west-london">South West London</a>
+</div>
+<script>
+
+document.addEventListener("click", async function (event) {
+    const link = event.target.closest(".area-dropdown-link");
+
+    if (!link) return;
+
+    event.preventDefault();
+
+    const slug = link.dataset.slug;
+
+    const areasList = document.getElementById("areas-list");
+    const areaDetails = document.getElementById("area-details");
+    const areaLoading = document.getElementById("area-loading");
+    const areaError = document.getElementById("area-error");
+
+    areasList.hidden = true;
+    areaDetails.hidden = true;
+    areaError.hidden = true;
+    areaLoading.hidden = false;
+
+    try {
+        // Request the actual Flask route, not the #slug anchor
+        const response = await fetch(`/area-content/${encodeURIComponent(slug)}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const html = await response.text();
+
+        areaDetails.innerHTML = html;
+        areaDetails.hidden = false;
+
+        // Update the address bar without navigating or reloading
+        history.pushState({ areaPage: true, slug: slug }, "", `/#${slug}`);
+
+        document.getElementById("areas").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    } catch (error) {
+        console.error("Error loading area:", error);
+        areasList.hidden = false;
+        areaError.hidden = false;
+    } finally {
+        areaLoading.hidden = true;
+    }
+});
+
+</script>
+
+                </li>
+
+                <!-- Link for Gallery -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Gallery</a>
+                </li>
+
+                <!-- WhatsApp Icon -->
+                <li class="nav-item">
+                    <a class="nav-link contact-icons" href="https://wa.me/+447523790760" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+                <!-- Phone Icon -->
+                <li class="nav-item">
+                    <a class="nav-link contact-icons" href="tel:00442082971411">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="heroCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    {% for slide in slides %}
+      <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+          <img id="slide-{{ loop.index }}" src="{{ slide.image }}" alt="Slide {{ loop.index }}" width="100%" height="auto" style="object-fit: cover">
+
+      </div>
+    {% endfor %}
+
+  </div>
+<script>
+    // Function to check if the device is mobile
+    const isMobile = () => window.innerWidth <= 767;
+
+    // Function to update image sources for mobile view
+    const updateCarouselImages = () => {
+        // Select all carousel images
+        const images = document.querySelectorAll('#heroCarousel .carousel-item img');
+
+        images.forEach((img, index) => {
+            const originalSrc = img.src;
+
+            // Update src based on device type
+            if (isMobile()) {
+                // Replace 'front' with 'mobile' in the src path
+                img.src = originalSrc.replace('front', 'mobile');
+            } else {
+                // Revert to 'front' for desktop
+                img.src = originalSrc.replace('mobile', 'front');
+            }
+        });
+    };
+
+    // Call the function initially
+    updateCarouselImages();
+
+    // Re-run the function on window resize
+    window.addEventListener('resize', updateCarouselImages);
+</script>
+
+        <!-- Carousel Controls -->
+  <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+    <div class="hero-section" style="background-color: red" >
+                <div class="text-center text-white">
+                    <h1>Welcome To Manor Lane Dry Cleaners</h1>
+                    <p>Your clothes deserve the premium care!</p>
+                    <a href="#services" class="btn btn-primary cta-button">View Our Services</a>
+                </div>
+      </div>
+<section id="services" class="py-5 services-section">
+    <div class="container py-5">
+        <h2 class="text-center">Our Services</h2>
+        <div class="row mt-4">
+            {% for service in services %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 my-3 p-3 rounded">
+                        <!-- Image or carousel of images for each service -->
+                        <div class="service-images text-center mb-3">
+                            {% if service.images | length > 1 %}
+                                <!-- Carousel for multiple images -->
+                                <div id="carousel-{{ loop.index }}" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        {% for image in service.images %}
+                                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                                <img src="{{ image }}" class="d-block w-100" alt="{{ service.title }} " height="300px">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <!-- Single image -->
+                                <div style="margin-bottom: 40px;" >
+                                    <img src="{{ service.images[0] }}"  height="400px" class="d-block w-100" alt="{{ service.title }}">
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ service.title }}</h5>
+                            <p class="card-text">{{ service.short_description }}</p>
+                            <!-- Description container with show/hide functionality -->
+                            <p class="card-text service-description" id="description-{{ loop.index }}" style="display: none;">
+                                {{ service.description }}
+                            </p>
+                            <!-- Show More/Less Button -->
+                            <button class="btn btn-primary show-more-btn" onclick="toggleDescription({{ loop.index }})">
+                                Show More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function toggleDescription(index) {
+        const description = document.getElementById(`description-${index}`);
+        const button = description.nextElementSibling;
+
+        if (description.style.display === "none") {
+            description.style.display = "block";
+            button.textContent = "Show Less";
+        } else {
+            description.style.display = "none";
+            button.textContent = "Show More";
+        }
+    }
+</script>
+
+
+
+    <!-- Prices Section -->
+    <section id="prices" class="prices-section bg-light">
+        <div class="container">
+            <h2 class="text-center">Dry Cleaning & Prices From</h2>
+            <table class="table table-bordered table-striped mt-4">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Service</th>
+                        <th>Price (£)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in price_list %}
+                        <tr>
+                            <td>{{ item.service }}</td>
+                            <td>£{{ item.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <!-- Find Us Section -->
+    <section id="find-us" class="find-us-section py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="text-center mb-4">Find Us</h2>
+            <p class="text-center">Visit our store at the following location:</p>
+        </div>
+            <div class="row">
+            <div class="col-md-6 mb-4 px-4 justify-content-center">
+                <h5 class="mb-3">Address</h5>
+                <p class="mb-4">176 Manor Ln, London SE12 8LP, United Kingdom</p>
+
+                <h5 class="mb-3">Contact Number</h5>
+                <p class="mb-4"><a href="tel:+442082971411">+44 20 8297 1411</a></p>
+
+                <p>
+                    <a class="nav-link contact-icons" href="https://wa.me/+447523790760" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </p>
+
+                <h5 class="mb-3">Opening Hours</h5>
+                <p>Mon - Sat: 8:30am to 6:30pm</p>
+            </div>
+            <!-- Google Maps Embed -->
+        <div class="col-md-6">
+                <h5 class="mb-3">Location</h5>
+                <!-- Google Maps iframe for the location -->
+                <div class="map-container" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d79563.89126333094!2d-0.07673473261803873!3d51.45133342194413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x47d8a9e0a851fedf%3A0x649a49541f66a632!2s176%20Manor%20Ln%2C%20London%20SE12%208LP%2C%20United%20Kingdom!3m2!1d51.4513623!2d0.0056654999999999995!5e0!3m2!1sen!2s!4v1729790687910!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Why Choose Manor Lane Dry Cleaners?</h2>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>Quality Assurance</h3>
+                    <p>
+                        At Manor Lane Dry Cleaners, we prioritize quality in every aspect of our service. Our experienced team uses advanced cleaning techniques and high-quality products to ensure your garments look their best. We perform thorough inspections on all items to meet our high standards before they leave our facility.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Affordable Prices</h3>
+                    <p>
+                        We believe that quality laundry services should be accessible to everyone. That's why we offer competitive pricing without compromising on the quality of our work. Our transparent pricing structure ensures you know exactly what you're paying for.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>Quick Turnaround Times</h3>
+                    <p>
+                        Need your clothes cleaned in a hurry? No problem! At Manor Lane Dry Cleaners, we offer same-day or next-day service for most garments. We value your time and strive to provide fast, reliable service without compromising on quality.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>All Done In-House</h3>
+                    <p>
+                        We handle all cleaning processes in-house, ensuring that every garment receives the personal touch it deserves. Our skilled team meticulously inspects and cleans each item, providing you with peace of mind that your clothes are in good hands.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h3>Attention to Detail</h3>
+                    <p>
+                        From removing tough stains to repairing minor damages, we go the extra mile to ensure that your clothes look their best. Our team takes pride in giving every item special attention, whether it’s a business suit, a wedding dress, or your everyday wear.
+                    </p>
+                    <p>
+                        Whether you need a one-time service or regular cleaning, Manor Lane Dry Cleaners is your trusted partner for all your garment care needs. Give us a try today, and let us show you why we’re the top choice in town!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="gallery" class="py-5 bg-light">
+       <div class="container my-4">
+            <h2 class="text-center mb-4">Media Gallery</h2>
+            <div class="row g-4" >
+                {% for item in media_items %}
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#mediaModal"
+                               data-src="{{ item.src }}" data-type="{{ item.type }}" data-title="{{ item.title }}">
+                                <img src="{{ item.thumbnail }}" class="card-img-top" alt="{{ item.alt }}">
+                            </a>
+                            <div class="card-body" >
+                                <h5 class="card-title">{{ item.title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="mediaModal" tabindex="-1" aria-labelledby="mediaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="modalTitle" class="modal-title"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modalContent"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const mediaModal = document.getElementById('mediaModal');
+            const modalContent = document.getElementById('modalContent');
+            const modalTitle = document.getElementById('modalTitle');
+
+            mediaModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const src = button.getAttribute('data-src');
+                const type = button.getAttribute('data-type');
+                const title = button.getAttribute('data-title');
+
+                modalTitle.textContent = title; // Set the title in the modal
+
+                if (type === 'image') {
+                    modalContent.innerHTML = `<img src="${src}" class="img-fluid" alt="${title}">`;
+                } else if (type === 'video') {
+                    modalContent.innerHTML = `
+                        <div class="d-flex justify-content-center ">
+                            <video controls autoplay class="w-100" style="max-height: 85vh;">
+                                <source src="${src}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    `;
+                }
+            });
+
+            mediaModal.addEventListener('hidden.bs.modal', function() {
+                modalContent.innerHTML = ''; // Clear content when modal is closed
+            });
+        </script>
+    </section>
+
+
+
+
+<section id="areas" class="py-5">
+    <div class="container">
+
+        <!-- All Area Cards -->
+        <div id="areas-list">
+            <div class="text-center mb-5">
+                <h2>Areas We Cover</h2>
+                <p>
+                    Professional dry cleaning, laundry, tailoring
+                    and garment care with FREE contactless collection
+                    and delivery.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                {% for slug, area in areas.items() %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-card h-100 p-4">
+                        <h4>{{ area.name }}</h4>
+
+                        <p>
+                            Dry cleaning, laundry, clothing repairs,
+                            wedding dress alterations and more.
+                        </p>
+
+                        <a href="{{ url_for('area_content', slug=slug) }}"
+                           class="btn btn-outline-dark area-link"
+                           data-url="{{ url_for('area_content', slug=slug) }}">
+                            Explore {{ area.name }} &rarr;
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Area Details: Hidden Until an Area Is Selected -->
+        <div id="area-details" hidden></div>
+
+        <p id="area-loading" hidden>Loading area details...</p>
+        <p id="area-error" hidden>
+            Sorry, we couldn't load this area's details. Please try again.
+        </p>
+
+    </div>
+    <script>
+
+document.addEventListener("click", async function (event) {
+    const link = event.target.closest("a.area-link");
+
+    if (!link) return;
+
+    // Prevent the browser from opening a new page
+    event.preventDefault();
+    event.stopPropagation();
+
+    const areasList = document.getElementById("areas-list");
+    const areaDetails = document.getElementById("area-details");
+    const areaLoading = document.getElementById("area-loading");
+    const areaError = document.getElementById("area-error");
+
+    areasList.hidden = true;
+    areaDetails.hidden = true;
+    areaError.hidden = true;
+    areaLoading.hidden = false;
+
+    try {
+        const response = await fetch(link.dataset.url);
+
+        if (!response.ok) {
+            throw new Error("Failed to load area");
+        }
+
+        const html = await response.text();
+
+        areaDetails.innerHTML = html;
+        areaDetails.hidden = false;
+
+        history.pushState({ areaPage: true }, "", link.href);
+
+        document.getElementById("areas").scrollIntoView({
+            behavior: "smooth"
+        });
+    } catch (error) {
+        console.error(error);
+        areasList.hidden = false;
+        areaError.hidden = false;
+    } finally {
+        areaLoading.hidden = true;
+    }
+});
+
+function showAreas() {
+    document.getElementById("area-details").hidden = true;
+    document.getElementById("areas-list").hidden = false;
+    document.getElementById("area-error").hidden = true;
+
+    history.pushState({}, "", "{{ url_for('index') }}");
+
+    document.getElementById("areas").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+    </script>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form method="POST" action="/send_message" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="NAME" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="EMAIL" required >
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Ask your Question here." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div id="thankYou" style="margin-top:10px; color:green;"></div>
+
+    </section>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById('contactForm'); // match your HTML
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+
+
+        const formData = new FormData(form);
+
+        fetch('/send_message', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                // Change URL to /#send_message
+                window.location.hash = "send_message";
+
+                // Show thank you text in page
+                document.getElementById('thankYou').textContent =
+                    `Thank you ${data.name}, your message has been sent! 🎉`;
+
+                // Push GTM event
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: "formSubmissionSuccess",
+                    name: data.name
+                });
+            } else {
+                alert(data.message || "Something went wrong");
+            }
+        })
+        .catch(() => {
+            alert("Network error, please try again.");
+        });
+    });
+});
+</script>
+
+    <!-- Footer -->
+    <!-- Footer Section -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <!-- About Us -->
+                <div class="col-md-4 mb-3">
+                    <h5>About Manor Lane Dry Cleaners</h5>
+                    <p>
+                        Providing expert care for all types of fabrics with eco-friendly solutions and premium care. We take pride in making your garments look their best.
+                    </p>
+                </div>
+                <!-- Contact Information -->
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> 176 Manor Ln, London SE12 8LP, United Kingdom</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+442082971411 " class="text-light">+44 20 8297 1411 </a></p>
+                    <p>
+                    <a class="nav-link contact-icons" href="https://wa.me/+447523790760" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:manorlane.drycleaners176@gmail.com" class="text-light">manorlane.drycleaners176@gmail.com</a></p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-md-2 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#services" class="text-light">Services</a></li>
+                        <li><a href="#find-us" class="text-light">Find Us</a></li>
+                        <li><a href="#pricing" class="text-light">Pricing</a></li>
+                        <li><a href="#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Operating Hours -->
+                <div class="col-md-2 mb-3">
+                    <h5>Opening Hours</h5>
+sd                    <p>Mon - Sat: 8:30 am - 6:30 pm</p>
+                    <p>Sun: Closed</p>
+                </div>
+                <!-- Service Areas -->
+                <div class="col-md-2 mb-3">
+                    <h5>Service Areas</h5>
+                    <ul class="list-unstyled">
+                    <li><a class="area-footer-link" href="#manor-lane" data-slug="manor-lane">Manor Lane</a></li>
+
+<li><a class="area-footer-link" href="#hither-green" data-slug="hither-green">Hither Green</a></li>
+
+<li><a class="area-footer-link" href="#lee" data-slug="lee" >Lee</a></li>
+
+<li><a class="area-footer-link" href="#lewisham" data-slug="lewisham">Lewisham</a></li>
+
+<li><a class="area-footer-link" href="#blackheath" data-slug="blackheath">Blackheath</a></li>
+
+<li><a class="area-footer-link" href="#grove-park" data-slug="grove-park">Grove Park</a></li>
+
+<li><a class="area-footer-link" href="#eltham" data-slug="eltham">Eltham</a></li>
+
+<li><a class="area-footer-link" href="#catford" data-slug="catford">Catford</a></li>
+
+<li><a class="area-footer-link" href="#deptford" data-slug="deptford">Deptford</a></li>
+
+<li><a class="area-footer-link" href="#brockley" data-slug="brockley">Brockley</a></li>
+
+<li><a class="area-footer-link" href="#greenwich" data-slug="greenwich">Greenwich</a></li>
+
+<li><a class="area-footer-link" href="#new-cross" data-slug="new-cross">New Cross</a></li>
+
+<li><a class="area-footer-link" href="#ladywell" data-slug="ladywell">Ladywell</a></li>
+
+<li><a class="area-footer-link" href="#forest-hill" data-slug="forest-hill">Forest Hill</a></li>
+
+<li><a class="area-footer-link" href="#sydenham" data-slug="sydenham">Sydenham</a></li>
+
+<li><a class="area-footer-link" href="#south-london" data-slug="south-london">South London</a></li>
+
+<li><a class="area-footer-link" href="#south-east-london" data-slug="south-east-london">South East London</a></li>
+
+<li><a class="area-footer-link" href="#south-west-london" data-slug="south-west-london">South West London</a></li>
+                </div>
+            </div>
+            <script>
+
+document.addEventListener("click", async function (event) {
+    const link = event.target.closest(".area-footer-link");
+
+    if (!link) return;
+
+    event.preventDefault();
+
+    const slug = link.dataset.slug;
+
+    const areasList = document.getElementById("areas-list");
+    const areaDetails = document.getElementById("area-details");
+    const areaLoading = document.getElementById("area-loading");
+    const areaError = document.getElementById("area-error");
+
+    areasList.hidden = true;
+    areaDetails.hidden = true;
+    areaError.hidden = true;
+    areaLoading.hidden = false;
+
+    try {
+        // Request the actual Flask route, not the #slug anchor
+        const response = await fetch(`/area-content/${encodeURIComponent(slug)}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const html = await response.text();
+
+        areaDetails.innerHTML = html;
+        areaDetails.hidden = false;
+
+        // Update the address bar without navigating or reloading
+        history.pushState({ areaPage: true, slug: slug }, "", `/#${slug}`);
+
+        document.getElementById("areas").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    } catch (error) {
+        console.error("Error loading area:", error);
+        areasList.hidden = false;
+        areaError.hidden = false;
+    } finally {
+        areaLoading.hidden = true;
+    }
+});
+
+</script>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p>&copy; {{ current_year }} Manor Lane Dry Cleaners | All rights reserved.</p>
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/+447523790760" target="_blank" class="fab whatsapp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    
+      <!-- Phone -->
+      <a href="tel:00442082971411" class="fab phone">
+        <i class="fas fa-phone"></i>
+      </a>
+    
+      <!-- Navigation (Google Maps) -->
+      <a class="fab map" href="https://www.google.com/maps/dir//176+Manor+Ln,+London+SE12+8LP,+United+Kingdom/@51.4513334,-0.0767347,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47d8a9e0a851fedf:0x649a49541f66a632!2m2!1d0.0056655!2d51.4513623?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D">
+        <i class="fas fa-map-marker-alt"></i>
+      </a>
+    </div>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+</body>
+</html>

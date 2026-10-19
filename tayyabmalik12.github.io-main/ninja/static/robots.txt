@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /static/
+Allow: /wp-content/
+Allow: /*.css
+Allow: /*.js
+
+Disallow: /admin/
+Disallow: /private/
+Sitemap: https://www.manorlanedrycleaners.co.uk/sitemap.xml

@@ -1,0 +1,31 @@
+
+<div class="area-detail-page">
+    <button type="button"
+            class="btn btn-outline-secondary mb-4"
+            onclick="showAreas()">
+        &larr; Back to All Areas
+    </button>
+
+    <h1>{{ area.name }} Dry Cleaners</h1>
+
+    <div class="area-detail-description">
+        {% for paragraph in area.description.split('\n\n') %}
+            <p>{{ paragraph }}</p>
+        {% endfor %}
+    </div>
+
+    <h3 class="mt-4">Our Services in {{ area.name }}</h3>
+
+    <ul>
+        {% for service in area.services %}
+            <li>{{ service }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if area.offer_title %}
+        <div class="area-offer mt-4">
+            <h3>{{ area.offer_title }}</h3>
+            <p>{{ area.offer_description }}</p>
+        </div>
+    {% endif %}
+</div>
