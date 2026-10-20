@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash, send_from_directory, jsonify
+from flask import Flask, render_template, request, abort, redirect, flash, send_from_directory, jsonify
 import smtplib  # Use this for sending emails
 from email.mime.text import MIMEText
 import mimetypes
@@ -6,7 +6,437 @@ mimetypes.add_type('image/webp', '.webp')
 
 app = Flask(__name__)
 app.secret_key = 'tayyab12'
+areas = {
+    "blackheath": {
+        "name": "Blackheath",
+        "services": [
+            "Dry Cleaners Blackheath",
+            "Wedding Dress Cleaning & Alteration",
+            "Curtain Cleaning & Alterations",
+            "Clothing Repairs Blackheath",
+            "Tailors",
+            "Laundry"
+        ],
+        "description": """
+        Manor Lane Dry Cleaners has been serving the residents
+        of Lewisham for many years. Whether you live in SE3,
+        SE12, SE13 or the surrounding areas, you can benefit
+        from our FREE contactless collection and delivery.
 
+        You can also visit us on Manor Lane. Free parking is
+        available before 10:00 am and after 12:00 pm,
+        Monday to Friday, and all day on Saturday across the road.
+
+        We also offer an expert home fitting service for wedding
+        dresses and other garments. Book an appointment and our
+        expert will visit your home to professionally pin your
+        wedding dress or garments for the perfect fit.
+
+        Whatever you need, give us a call to discuss your
+        requirements.
+        """,
+        "offer_title": "15% OFF DRY CLEANING",
+        "offer_description": (
+            "Special discount for Blackheath residents. "
+            "Sign up for your Blackheath Residents 15% OFF "
+            "Dry Cleaning Voucher."
+        )
+    },
+
+"lee": {
+    "name": "Lee",
+    "services": [
+        "Dry Cleaners Lee",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Lee",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """
+Manor Lane Dry Cleaners has been serving the residents of Lee for many years now. Whether you live in the SE12 or SE13 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me'. We offer FREE Contactless Collection & Delivery, or you can visit us on Manor Lane.
+
+Free parking is available before 10:00 am and after 12:00 pm, Monday to Friday, and free all day on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for wedding dresses and all garments. We bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit for your exact requirements.
+
+Whatever you need, give us a call to discuss your requirements.
+
+Don't forget to sign up for your Lee Residents 15% OFF Dry Cleaning Voucher.
+""",
+    "offer_title": "15% OFF DRY CLEANING",
+    "offer_description": (
+        "Special offer for Lee residents! "
+        "Sign up for your Lee Residents 15% OFF "
+        "Dry Cleaning Voucher."
+    )
+},
+
+"manor-lane": {
+    "name": "Manor Lane",
+    "services": [
+        "Dry Cleaners Manor Lane",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Manor Lane",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """
+Manor Lane Dry Cleaners has been serving the residents of Manor Lane for many years now. Whether you live in the SE12 or SE13 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me'. We offer FREE Contactless Collection & Delivery, or you can simply visit us on Manor Lane.
+
+Free parking is available before 10:00 am and after 12:00 pm, Monday to Friday, and free all day on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for wedding dresses and all garments. We bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit for your exact requirements.
+
+Whatever you need, give us a call to discuss your requirements.
+
+Don't forget to sign up for your Manor Lane Residents 15% OFF Dry Cleaning Voucher.
+""",
+    "offer_title": "15% OFF DRY CLEANING",
+    "offer_description": (
+        "Special offer for Manor Lane residents! "
+        "Sign up for your Manor Lane Residents "
+        "15% OFF Dry Cleaning Voucher."
+    )
+},
+
+"south-west-london": {
+    "name": "South West London",
+    "services": [
+        "Dry Cleaners South West London",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs South West London",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """
+Manor Lane Dry Cleaners has been serving the residents of South West London for many years now. Whether you live in South West London or the surrounding areas, you no longer need to search for 'Dry Cleaners near me'. We offer FREE Contactless Collection & Delivery, or you can simply visit us on Manor Lane.
+
+Free parking is available before 10:00 am and after 12:00 pm, Monday to Friday, and free all day on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for wedding dresses and all garments. We bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit for your exact requirements.
+
+Whatever you need, give us a call to discuss your requirements.
+
+Don't forget to sign up for your South West London Residents 15% OFF Dry Cleaning Voucher.
+""",
+    "offer_title": "15% OFF DRY CLEANING",
+    "offer_description": (
+        "Special offer for South West London residents! "
+        "Sign up for your South West London Residents "
+        "15% OFF Dry Cleaning Voucher."
+    )
+},
+
+"south-east-london": {
+    "name": "South East London",
+    "services": [
+        "Dry Cleaners South East London",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs South East London",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """
+Manor Lane Dry Cleaners has been serving the residents of South East London for many years now. Whether you live in South East London or the surrounding areas, you no longer need to search for 'Dry Cleaners near me'. We offer FREE Contactless Collection & Delivery, or you can simply visit us on Manor Lane.
+
+Free parking is available before 10:00 am and after 12:00 pm, Monday to Friday, and free all day on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for wedding dresses and all garments. We bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit for your exact requirements.
+
+Whatever you need, give us a call to discuss your requirements.
+
+Don't forget to sign up for your South East London Residents 15% OFF Dry Cleaning Voucher.
+""",
+    "offer_title": "15% OFF DRY CLEANING",
+    "offer_description": (
+        "Special offer for South East London residents! "
+        "Sign up for your South East London Residents "
+        "15% OFF Dry Cleaning Voucher."
+    )
+},
+
+"south-london": {
+    "name": "South London",
+    "services": [
+        "Dry Cleaners South London",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs South London",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """
+Manor Lane Dry Cleaners has been serving the residents of South London for many years now. Whether you live in South London or the surrounding areas, you no longer need to search for 'Dry Cleaners near me'. We offer FREE Contactless Collection & Delivery, or you can simply visit us on Manor Lane.
+
+Free parking is available before 10:00 am and after 12:00 pm, Monday to Friday, and free all day on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for wedding dresses and all garments. We bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit for your exact requirements.
+
+Whatever you need, give us a call to discuss your requirements.
+
+Don't forget to sign up for your South London Residents 15% OFF Dry Cleaning Voucher.
+""",
+    "offer_title": "15% OFF DRY CLEANING",
+    "offer_description": (
+        "Special offer for South London residents! "
+        "Sign up for your South London Residents "
+        "15% OFF Dry Cleaning Voucher."
+    )
+},
+
+"eltham": {
+    "name": "Eltham",
+    "services": [
+        "Dry Cleaners Eltham",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Eltham",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """
+Manor Lane Dry Cleaners has been serving the residents of Eltham for many years now. Whether you live in the SE12 or SE9 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me'. We offer FREE Contactless Collection & Delivery, or you can simply visit us on Manor Lane.
+
+Free parking is available before 10:00 am and after 12:00 pm, Monday to Friday, and free all day on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for wedding dresses and all garments. We bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit for your exact requirements.
+
+Whatever you need, give us a call to discuss your requirements.
+
+Don't forget to sign up for your Eltham Residents 15% OFF Dry Cleaning Voucher.
+""",
+    "offer_title": "15% OFF DRY CLEANING",
+    "offer_description": (
+        "Special offer for Eltham residents! "
+        "Sign up for your Eltham Residents "
+        "15% OFF Dry Cleaning Voucher."
+    )
+},
+
+"greenwich": {
+    "name": "Greenwich",
+    "services": [
+        "Dry Cleaners Greenwich",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Greenwich",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """
+Manor Lane Dry Cleaners has been serving the residents of Greenwich for many years now. Whether you live in the SE12 or SE10 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me'. We offer FREE Contactless Collection & Delivery, or you can simply visit us on Manor Lane.
+
+Free parking is available before 10:00 am and after 12:00 pm, Monday to Friday, and free all day on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for wedding dresses and all garments. We bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit for your exact requirements.
+
+Whatever you need, give us a call to discuss your requirements.
+
+Don't forget to sign up for your Greenwich Residents 15% OFF Dry Cleaning Voucher.
+""",
+    "offer_title": "15% OFF DRY CLEANING",
+    "offer_description": (
+        "Special offer for Greenwich residents! "
+        "Sign up for your Greenwich Residents "
+        "15% OFF Dry Cleaning Voucher."
+    )
+},
+
+"sydenham": {
+    "name": "Sydenham",
+    "services": [
+        "Dry Cleaners Sydenham",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Sydenham",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """
+Manor Lane Dry Cleaners has been serving the residents of Sydenham for many years now. Whether you live in the SE12 or SE26 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me'. We offer FREE Contactless Collection & Delivery, or you can simply visit us on Manor Lane.
+
+Free parking is available before 10:00 am and after 12:00 pm, Monday to Friday, and free all day on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for wedding dresses and all garments. We bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit for your exact requirements.
+
+Whatever you need, give us a call to discuss your requirements.
+
+Don't forget to sign up for your Sydenham Residents 15% OFF Dry Cleaning Voucher.
+""",
+    "offer_title": "15% OFF DRY CLEANING",
+    "offer_description": (
+        "Special offer for Sydenham residents! "
+        "Sign up for your Sydenham Residents "
+        "15% OFF Dry Cleaning Voucher."
+    )
+},
+"forest-hill": {
+    "name": "Forest Hill",
+    "services": [
+        "Dry Cleaners Forest Hill",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Forest Hill",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of Forest Hill for many years now. So whether you are living in the SE12 or SE23 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR FOREST HILL RESIDENTS",
+    "offer_description": "Don't forget to sign up for your Forest Hill Residents 15% OFF Dry Cleaning Voucher."
+},
+"new-cross": {
+    "name": "New Cross",
+    "services": [
+        "Dry Cleaners New Cross",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs New Cross",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of New Cross for many years now. So whether you are living in the SE12 or SE14 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR NEW CROSS RESIDENTS",
+    "offer_description": "Don't forget to sign up for your New Cross Residents 15% OFF Dry Cleaning Voucher."
+},
+"deptford": {
+    "name": "Deptford",
+    "services": [
+        "Dry Cleaners Deptford",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Deptford",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of Deptford for many years now. So whether you are living in the SE12 or SE8 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR DEPTFORD RESIDENTS",
+    "offer_description": "Don't forget to sign up for your Deptford Residents 15% OFF Dry Cleaning Voucher."
+},
+"catford": {
+    "name": "Catford",
+    "services": [
+        "Dry Cleaners Catford",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Catford",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of Catford for many years now. So whether you are living in the SE12 or SE6 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR CATFORD RESIDENTS",
+    "offer_description": "Don't forget to sign up for your Catford Residents 15% OFF Dry Cleaning Voucher."
+},
+"brockley": {
+    "name": "Brockley",
+    "services": [
+        "Dry Cleaners Brockley",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Brockley",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of Brockley for many years now. So whether you are living in the SE12 or SE4 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR BROCKLEY RESIDENTS",
+    "offer_description": "Don't forget to sign up for your Brockley Residents 15% OFF Dry Cleaning Voucher."
+},
+"grove-park": {
+    "name": "Grove Park",
+    "services": [
+        "Dry Cleaners Grove Park",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Grove Park",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of Grove Park for many years now. So whether you are living in the SE12 or SE9 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR GROVE PARK RESIDENTS",
+    "offer_description": "Don't forget to sign up for your Grove Park Residents 15% OFF Dry Cleaning Voucher."
+},
+"ladywell": {
+    "name": "Ladywell",
+    "services": [
+        "Dry Cleaners Ladywell",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Ladywell",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of Ladywell for many years now. So whether you are living in the SE12 or SE13 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR LADYWELL RESIDENTS",
+    "offer_description": "Don't forget to sign up for your Ladywell Residents 15% OFF Dry Cleaning Voucher."
+},
+"hither-green": {
+    "name": "Hither Green",
+    "services": [
+        "Dry Cleaners Hither Green",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Hither Green",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of Hither Green for many years now. So whether you are living in the SE12 or SE13 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR HITHER GREEN RESIDENTS",
+    "offer_description": "Don't forget to sign up for your Hither Green Residents 15% OFF Dry Cleaning Voucher."
+},
+"lewisham": {
+    "name": "Lewisham",
+    "services": [
+        "Dry Cleaners Lewisham",
+        "Wedding Dress Cleaning & Alteration",
+        "Curtain Cleaning & Alterations",
+        "Clothing Repairs Lewisham",
+        "Tailors",
+        "Laundry"
+    ],
+    "description": """Manor Lane Dry Cleaners has been serving the residents of Lewisham for many years now. So whether you are living in the SE12 or SE13 area, or the surrounding areas, you no longer need to search for 'Dry Cleaners near me' as we have come even closer by offering FREE Contactless Collection & Delivery. Alternatively, you can simply visit us on Manor Lane. There is FREE parking before 10:00 am and after 12:00 pm (Monday–Friday), and free all-day parking on Saturday across the road.
+
+We also offer an Expert Home Fitting Service for your wedding dress and all garments. We now bring the tailor to you. Book an appointment, and our expert will visit your home to professionally pin your wedding dress or garments, ensuring the perfect fit to your exact requirements.
+
+Whatever you decide, why not give us a call to discuss anything you need doing?""",
+    "offer_title": "15% OFF DRY CLEANING FOR LEWISHAM RESIDENTS",
+    "offer_description": "Don't forget to sign up for your Lewisham Residents 15% OFF Dry Cleaning Voucher."
+},
+}
 services = [
     {
         "title": "Shirt Service",
@@ -152,7 +582,7 @@ def robots():
 
 @app.route('/')
 def index():
-    return render_template('index.html', services=services, price_list=price_list, slides=slides, media_items=media_items)
+    return render_template('index.html', services=services, price_list=price_list, slides=slides, media_items=media_items, areas=areas)
 
 @app.route('/gallery')
 def gallery():
@@ -202,6 +632,14 @@ def send_email(name, email, message):
         server.sendmail(sender, receiver, msg.as_string())
 
 
+@app.route("/area-content/<slug>")
+def area_content(slug):
+    area = areas.get(slug)
+
+    if area is None:
+        abort(404)
+
+    return render_template("_area_details.html", area=area)
 if __name__ == '__main__':
     app.run(debug=True)
 
